@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:key="@string/pref_key_notif_sound"
+        android:title="@string/pref_name_notif_sound"
+        android:summary="@string/pref_summary_notif_sound"
+        android:defaultValue="true" />
+
+    <CheckBoxPreference
+        android:key="@string/pref_key_notif_vibrate"
+        android:title="@string/pref_name_notif_vibrate"
+        android:summary="@string/pref_summary_notif_vibrate"
+        android:defaultValue="false" />
+
+    <com.grawin.couchto5k.prefs.NumberPickerPreference
+        android:key="@string/pref_key_notif_countdown"
+        android:title="@string/pref_name_notif_countdown"
+        android:summary="@string/pref_summary_notif_countdown"
+        android:defaultValue="3" />
+
+</PreferenceScreen>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plan>
+    <week id="1">
+        <day>
+            <warmup>300</warmup>
+            <reps value="8">
+                <jog>60</jog>
+                <walk>90</walk>
+            </reps>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <reps value="8">
+                <jog>60</jog>
+                <walk>90</walk>
+            </reps>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <reps value="8">
+                <jog>60</jog>
+                <walk>90</walk>
+            </reps>
+        </day>
+    </week>
+    <week id="2">
+        <day>
+            <warmup>300</warmup>
+            <reps value="6">
+                <jog>90</jog>
+                <walk>120</walk>
+            </reps>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <reps value="6">
+                <jog>90</jog>
+                <walk>120</walk>
+            </reps>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <reps value="6">
+                <jog>90</jog>
+                <walk>120</walk>
+            </reps>
+        </day>
+    </week>
+    <week id="3">
+        <day>
+            <warmup>300</warmup>
+            <reps value="2">
+                <jog>90</jog>
+                <walk>90</walk>
+                <jog>180</jog>
+                <walk>90</walk>
+            </reps>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <reps value="2">
+                <jog>90</jog>
+                <walk>90</walk>
+                <jog>180</jog>
+                <walk>90</walk>
+            </reps>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <reps value="2">
+                <jog>90</jog>
+                <walk>90</walk>
+                <jog>180</jog>
+                <walk>90</walk>
+            </reps>
+        </day>
+    </week>
+    <week id="4">
+        <day>
+            <warmup>300</warmup>
+            <jog>180</jog>
+            <walk>90</walk>
+            <jog>300</jog>
+            <walk>150</walk>
+            <jog>180</jog>
+            <walk>90</walk>
+            <jog>300</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>180</jog>
+            <walk>90</walk>
+            <jog>300</jog>
+            <walk>150</walk>
+            <jog>180</jog>
+            <walk>90</walk>
+            <jog>300</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>180</jog>
+            <walk>90</walk>
+            <jog>300</jog>
+            <walk>150</walk>
+            <jog>180</jog>
+            <walk>90</walk>
+            <jog>300</jog>
+        </day>
+    </week>
+    <week id="5">
+        <day>
+            <warmup>300</warmup>
+            <jog>300</jog>
+            <walk>180</walk>
+            <jog>300</jog>
+            <walk>180</walk>
+            <jog>300</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>480</jog>
+            <walk>300</walk>
+            <jog>480</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>1200</jog>
+        </day>
+    </week>
+    <week id="6">
+        <day>
+            <warmup>300</warmup>
+            <jog>300</jog>
+            <walk>180</walk>
+            <jog>480</jog>
+            <walk>180</walk>
+            <jog>300</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>600</jog>
+            <walk>180</walk>
+            <jog>600</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>1320</jog>
+        </day>
+    </week>
+    <week id="7">
+        <day>
+            <warmup>300</warmup>
+            <jog>1500</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>1500</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>1500</jog>
+        </day>
+    </week>
+    <week id="8">
+        <day>
+            <warmup>300</warmup>
+            <jog>1680</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>1680</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>1680</jog>
+        </day>
+    </week>
+    <week id="9">
+        <day>
+            <warmup>300</warmup>
+            <jog>1800</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>1800</jog>
+        </day>
+        <day>
+            <warmup>300</warmup>
+            <jog>1800</jog>
+        </day>
+    </week>
+</plan>

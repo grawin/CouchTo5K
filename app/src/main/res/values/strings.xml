@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Sofa to Sprint</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_workout">WorkoutActivity</string>
+    <string name="pause">Pause</string>
+    <string name="start">Start</string>
+    <string name="resume">Resume</string>
+    <string name="str_complete">Workout Complete!</string>
+    <string name="tab">\u0009</string>
+    <string name="welcome">Select day or resume current progress.</string>
+    <string name="workout_scroll_title">Selected workout</string>
+    <string name="week">Week</string>
+    <string name="day">Day</string>
+    <string name="finish">Finish</string>
+
+    <!-- Preference Strings -->
+    <string name="saved_progress_day">SavedProgressDay</string>
+
+    <string name="pref_key_notif_sound">"pref_notif_sound"</string>
+    <string name="pref_name_notif_sound">"Sound Notification"</string>
+    <string name="pref_summary_notif_sound">"Enables sound notification for countdown to next workout step."</string>
+
+    <string name="pref_key_notif_vibrate">"pref_notif_vibrate"</string>
+    <string name="pref_name_notif_vibrate">"Vibrate Notification"</string>
+    <string name="pref_summary_notif_vibrate">"Enables vibrate notification for countdown to next workout step."</string>
+
+    <string name="pref_key_notif_countdown">"pref_notif_countdown"</string>
+    <string name="pref_name_notif_countdown">"Notification Countdown"</string>
+    <string name="pref_summary_notif_countdown">"Number of seconds to play the notification for countdown to next workout step."</string>
+
+</resources>
