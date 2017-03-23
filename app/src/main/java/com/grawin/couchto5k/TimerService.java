@@ -17,6 +17,9 @@ import com.grawin.couchto5k.data.WorkoutList;
 
 /**
  * Created by Ryan on 2/26/2016.
+ *
+ * Timer service to provide time keeping for the workout activity.
+ * This also provides the hooks to manage the timer info displayed as a notification.
  */
 public class TimerService extends Service {
     /** Used to identify the source of a log message. */
@@ -33,14 +36,9 @@ public class TimerService extends Service {
 
     /** The remaining time in seconds. */
     private long mRemaining_sec;
-    /** The elapsed time in seconds. */
-    private long mElapsed_sec; // TODO - might need this for pausing? If not then get rid of it...
+
     /** The duration of the timer in seconds. */
     private long mDuration_sec;
-
-    // TODO - implement pausing...
-    private boolean isStarted;
-    private boolean isPaused;
 
     private NotificationManager mNotifier;
     private NotificationCompat.Builder mNotifyBuilder;
@@ -57,7 +55,6 @@ public class TimerService extends Service {
     public void onDestroy() {
         mTimer.cancel();
         mBeepPlayer.release();
-        // Log.i(TAG, "Timer cancelled");
         super.onDestroy();
     }
 
@@ -73,8 +70,6 @@ public class TimerService extends Service {
 
         setupNotification();
 
-        // Log.i(TAG, "Starting timer...");
-
         createTimer(mDuration_sec * 1000);
         mTimer.start();
 
@@ -86,7 +81,11 @@ public class TimerService extends Service {
         return null;
     }
 
-    // TODO - Notification should probably go in its own class?
+    // TODO - Notification could probably go in its own class
+
+    /**
+     * Sets up the timer notification.
+     */
     private void setupNotification() {
         Context context = getApplicationContext();
 
@@ -113,6 +112,10 @@ public class TimerService extends Service {
         mNotifier.notify(DataStore.NOTIFICATION_ID, notification);
     }
 
+    /**
+     * Creates a timer using the provided duration.
+     * @param duration_ms The timer duration in milliseconds.
+     */
     private void createTimer(long duration_ms) {
         mTimer = new CountDownTimer(duration_ms, TICK_RATE_MS) {
             @Override
@@ -133,11 +136,6 @@ public class TimerService extends Service {
 
                     // Update state with new time.
                     mRemaining_sec = newRemaining_sec;
-                    mElapsed_sec = mDuration_sec - mRemaining_sec;
-
-                    // Log.i(TAG, "Countdown seconds remaining: " + mRemaining_sec);
-
-
 
                     String notifText =
                     workoutList.getCurrentWorkoutEntry().getName() + "   " +
@@ -159,7 +157,6 @@ public class TimerService extends Service {
                         final int stepRemaining_sec = workoutList.getCurrentRemaining_sec();
 
                         if (stepRemaining_sec > 0 && stepRemaining_sec <= notifCount) {
-                            //Log.i(TAG, "s " + sound + " v " + vibrate + " n " + notifCount);
                             if (sound) {
                                 mBeepPlayer.start();
                             }
@@ -175,20 +172,19 @@ public class TimerService extends Service {
                 }
             }
 
+            /**
+             * On finish notify that workout is complete.
+             */
             @Override
             public void onFinish() {
-                isStarted = false;
-
                 mNotifyBuilder.setContentText(getString(R.string.str_complete));
                 Notification notification = mNotifyBuilder.build();
                 notification.flags |= Notification.FLAG_AUTO_CANCEL;
-
 
                 mNotifier.notify(DataStore.NOTIFICATION_ID, notification);
 
                 DataStore.setWorkoutComplete(true);
 
-                // Log.i(TAG, "Timer finished");
                 bi.putExtra("end", true);
                 sendBroadcast(bi);
             }

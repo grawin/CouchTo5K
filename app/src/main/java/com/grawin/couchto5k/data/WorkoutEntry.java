@@ -5,9 +5,14 @@ import android.os.Parcelable;
 
 /**
  * Created by rgraw on 2/23/2016.
+ *
+ * WorkoutEntry defines a single step in a given workout routine.
+ * It implements Parcelable for serialization to pass data between activities.
  */
 public class WorkoutEntry implements Parcelable {
+    /** The name of the current workout step (e.g. "walk", "jog"). */
     private String name;
+    /** The duration of the workout step in seconds. */
     private int time_sec;
 
     @Override
@@ -62,10 +67,4 @@ public class WorkoutEntry implements Parcelable {
     public int getTime_sec() {
         return time_sec;
     }
-
-    public void setTime_sec(int time_sec) {
-        this.time_sec = time_sec;
-    }
-
-
 }

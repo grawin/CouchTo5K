@@ -82,6 +82,8 @@ public class WorkoutActivity extends AppCompatActivity {
         }
     };
 
+    // Overriden activity methods.
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,18 +106,14 @@ public class WorkoutActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-
         setupUI();
-
         registerReceiver(br, new IntentFilter(TimerService.TIMER_BR));
-        //Log.i(TAG, "Registered broadcast receiver");
     }
 
     @Override
     public void onPause() {
         super.onPause();
         unregisterReceiver(br);
-        //Log.i(TAG, "Unregistered broadcast receiver");
     }
 
     @Override
@@ -135,6 +133,9 @@ public class WorkoutActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    /**
+     * Handles setting up the user interface based on the stored workout data.
+     */
     private void setupUI() {
         WorkoutList workoutList = DataStore.getWorkoutList();
         // If for some reason the workout list is null try to restore it from shared prefs.
@@ -203,6 +204,10 @@ public class WorkoutActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Handles the start timer button click.
+     * @param view
+     */
     public void handleStartTimerButton(View view) {
         if (DataStore.isWorkoutComplete()) {
             finish();
@@ -225,16 +230,27 @@ public class WorkoutActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Updates the text of the current workout step (e.g. "walk", "jog").
+     */
     private void updateCurrentActionText() {
         String str = DataStore.getWorkoutList().getCurrentWorkoutEntry().getName();
         String nameStr = str.substring(0, 1).toUpperCase() + str.substring(1);
         mWorkoutText.setText(nameStr);
     }
 
+    /**
+     * Updates the timer text display.
+     * @param remaining_sec The remaining time to display in seconds.
+     */
     private void updateTimerText(int remaining_sec) {
         mTimerText.setText(Utils.formatTimeString(remaining_sec));
     }
 
+    /**
+     * Handles the timer tick event broadcast by the timer service.
+     * @param intent Timer service intent data.
+     */
     private void handleTickEvent(Intent intent) {
         if (intent.getExtras() != null) {
 
@@ -266,6 +282,9 @@ public class WorkoutActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Updates the display when the workout is complete. Performs any needed cleanup.
+     */
     private void updateForComplete() {
         // Update circular progress bar and timer text.
         mProgressBar.setMax(1);
@@ -321,6 +340,9 @@ public class WorkoutActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Handles the "end event" broadcast by the timer service.
+     */
     private void handleEndEvent() {
         updateForComplete();
     }

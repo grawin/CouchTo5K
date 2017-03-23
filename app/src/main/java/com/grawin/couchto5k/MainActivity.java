@@ -55,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
     /** The current workout index out of the entire list of workouts. */
     int currentWorkoutIndex = 0;
 
-    //String currentWorkoutString = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,18 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        //int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        /*
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        */
-
+        // Handle each menu option, currently only preferences.
         switch (item.getItemId()) {
             case R.id.preferences: {
                 Intent intent = new Intent(this, MainPreferenceActivity.class);
@@ -306,7 +293,6 @@ public class MainActivity extends AppCompatActivity {
     public class SpinnerListener implements AdapterView.OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-            SpannableStringBuilder overallSpan = new SpannableStringBuilder();
             ArrayList<WorkoutEntry> day = spinnerMap.get(pos);
             listViewData.clear();
             for (WorkoutEntry entry : day) {
@@ -314,9 +300,6 @@ public class MainActivity extends AppCompatActivity {
                 int seconds = entry.getTime_sec();
                 String timeStr = String.format("%02d", seconds / 60) + ":" +
                         String.format("%02d", seconds % 60);
-
-                //String str = entry.getName();
-                //String nameStr = str.substring(0, 1).toUpperCase() + str.substring(1);
 
                 String listStringEntry = timeStr + "   " + entry.getName();
                 listViewData.add(listStringEntry);

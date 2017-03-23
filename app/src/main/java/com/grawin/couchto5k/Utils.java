@@ -2,6 +2,7 @@ package com.grawin.couchto5k;
 
 /**
  * Created by Ryan on 2/28/2016.
+ * Static utility class for misc. helper functions.
  */
 public final class Utils {
 
